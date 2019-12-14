@@ -68,6 +68,7 @@ public class CalcEngine
                     JulianDate jd2 = gd.convertToJulianDate();
                     displayString = jd.difference(jd2) + "";
                 }
+                // If input is not correct
                 else
                     System.out.println("Your input was wrong. Please use either a number or a complete date.");
 
@@ -84,11 +85,10 @@ public class CalcEngine
 
     /**
      * Method to determine which weekday the date is/was
-     * @return String weekday
      */
-    public String getWeekday() {
+    public void getWeekday() {
         JulianDate jd = gd.convertToJulianDate();
-        return displayString = jd.weekday();
+        displayString = jd.weekday();
     }
 
     /**
