@@ -11,7 +11,7 @@ public class CalcEngine
     protected String displayString;
 
     // The current (Gregorian) date which is set.
-    private GregorianDate gd = new GregorianDate();
+    protected GregorianDate gd = new GregorianDate();
 
     // This field saves the last used operator
     private char lastOperator;

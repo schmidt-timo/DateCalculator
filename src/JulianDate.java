@@ -23,22 +23,34 @@ public class JulianDate {
 		return (int) Math.abs(jd - subtrahend.getJD());
 	}
 
+	// fixed method
+	// Source: https://coderanch.com/t/410264/java/Julian-Gregorian-date-conversion
 	public GregorianDate getGregorian() {
-		int day, month, year;
-		double y = 4716, j = 1401, m = 2, n = 12,
-				r = 4, p = 1461, v = 3, u = 5,
-				s = 153, w = 2, B = 274277, C=-38;
+		int JGREG = 15 + 31*(10+12*1582);
+		double HALFSECOND = 0.5;
+		int injulian = (int) jd;
 
-		double f = jd + j + ((((4* jd +B)/146097)*3)/4) + C;
-		double e = r*f+v;
-		double g = (e%p)/r;
-		double h = u*g+w;
+		int jalpha,ja,jb,jc,jd,je,year,month,day;
+		double julian = injulian + HALFSECOND / 86400.0;
+		ja = (int) injulian;
+		if (ja>= JGREG) {
+			jalpha = (int) (((ja - 1867216) - 0.25) / 36524.25);
+			ja = ja + 1 + jalpha - jalpha / 4;
+		}
 
-		day = (int) ((h%s)/u);
-		month = (int) (((h/s+m)%n)+1);
-		year = (int) ((e/p)-y+(n+m-month)/n);
+		jb = ja + 1524;
+		jc = (int) (6680.0 + ((jb - 2439870) - 122.1) / 365.25);
+		jd = 365 * jc + jc / 4;
+		je = (int) ((jb - jd) / 30.6001);
+		day = jb - jd - (int) (30.6001 * je);
+		month = je - 1;
+		if (month > 12) month = month - 12;
+		year = jc - 4715;
+		if (month > 2) year--;
+		if (year <= 0) year--;
 
 		return new GregorianDate(year, month, day);
+
 	}
 
 	public String weekday() {
@@ -47,7 +59,7 @@ public class JulianDate {
 				return s.getName();
 			}
 		}   
-		return null;			  
+		return null;
 	}
 
 	public String toString() {

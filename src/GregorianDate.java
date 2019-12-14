@@ -99,7 +99,7 @@ public class GregorianDate {
 			M = month + 12;
 		} 	D = day;
 
-		double a = 2 - (Y/100) + (Y/400);
+		double a = 2 - (Y/100.0) + (Y/400.0);
 		double b = (365.25 * (Y + 4716));
 		double c = (30.6001* (M +1));
 		long jd = (long) (a + b + c + D - 1524.5);
