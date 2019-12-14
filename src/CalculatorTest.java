@@ -26,11 +26,16 @@ class CalculatorTest {
 
         calc.buttonPressed("14.12.2019");
         calc.applyOperator('+');
-        System.out.println(calc.gd.convertToJulianDate());
         calc.buttonPressed("17");
         calc.equals();
-        System.out.println(calc.gd.convertToJulianDate());
-        System.out.println(calc.gd.convertToJulianDate().getGregorian());
         assertEquals("31.12.2019", calc.getDisplayString());
+
+        calc.clear();
+
+        calc.buttonPressed("31.12.2019");
+        calc.applyOperator('+');
+        calc.buttonPressed("1");
+        calc.equals();
+        assertEquals("01.01.2020", calc.getDisplayString());
     }
 }
