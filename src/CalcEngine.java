@@ -60,7 +60,6 @@ public class CalcEngine
                     jd.add(-1 * Integer.parseInt(displayString));
                     gd = jd.getGregorian();
                     displayString = gd.toString();
-                    break;
                 }
                 // If displayString is a date (get days between)
                 else if (displayString.matches("^(3[0-1]|[0-2]?[0-9])\\.(1[0-2]|0?[0-9])\\.[0-9]{4}$")) {
@@ -70,8 +69,8 @@ public class CalcEngine
                 }
                 // If input is not correct
                 else
-                    System.out.println("Your input was wrong. Please use either a number or a complete date.");
-
+                    throw new IllegalArgumentException("Your input is neither a number nor a date.");
+                break;
         }
     }
 
