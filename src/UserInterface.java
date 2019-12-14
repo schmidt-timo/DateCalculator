@@ -64,25 +64,25 @@ public class UserInterface
 
         JPanel buttonPanel = new JPanel(new GridLayout(5, 4));
         
-            addButton(buttonPanel, "7", "");
-            addButton(buttonPanel, "8", "");
-            addButton(buttonPanel, "9", "");
+            addButton(buttonPanel, "7", null);
+            addButton(buttonPanel, "8", null);
+            addButton(buttonPanel, "9", null);
             addButton(buttonPanel, "clear", "Clear the display");
 
-            addButton(buttonPanel, "4", "");
-            addButton(buttonPanel, "5", "");
-            addButton(buttonPanel, "6", "");
+            addButton(buttonPanel, "4", null);
+            addButton(buttonPanel, "5", null);
+            addButton(buttonPanel, "6", null);
             addButton(buttonPanel, "+", "Add a number of days to the date");
             
-            addButton(buttonPanel, "1", "");
-            addButton(buttonPanel, "2", "");
-            addButton(buttonPanel, "3", "");
+            addButton(buttonPanel, "1", null);
+            addButton(buttonPanel, "2", null);
+            addButton(buttonPanel, "3", null);
             addButton(buttonPanel, "-", "Either subtract a number of days from the date or " +
                                                               "subtract two dates with each other and get the number of days in between");
 
             buttonPanel.add(new JLabel());
-            addButton(buttonPanel, "0", "");
-            addButton(buttonPanel, ".", "");
+            addButton(buttonPanel, "0", null);
+            addButton(buttonPanel, ".", null);
             addButton(buttonPanel, "weekday", "Get the weekday of this date");
 
             addButton(buttonPanel, "?", "Get version number");
@@ -94,6 +94,9 @@ public class UserInterface
 
         status = new JLabel(calc.getAuthor());
         contentPane.add(status, BorderLayout.SOUTH);
+
+        // Welcome message
+        display.setText("Start by putting in a date in format DD.MM.YYYY or D.M.YYYY");
 
         frame.pack();
     }
@@ -107,7 +110,8 @@ public class UserInterface
     {
         JButton button = new JButton(buttonText);
         button.addActionListener(this);
-        button.setToolTipText(tooltipText);
+        if (tooltipText != null)
+            button.setToolTipText(tooltipText);
         panel.add(button);
     }
 
@@ -134,15 +138,12 @@ public class UserInterface
                 calc.equals();
                 break;
             case "+":
-                calc.setDate();
                 calc.applyOperator('+');
                 break;
             case "-":
-                calc.setDate();
                 calc.applyOperator('-');
                 break;
             case "weekday":
-                calc.setDate();
                 calc.getWeekday();
                 break;
     	    default:

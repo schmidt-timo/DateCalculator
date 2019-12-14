@@ -14,7 +14,7 @@ public class CalcEngine
     private GregorianDate gd = new GregorianDate();
 
     // This field saves the last used operator
-    protected char lastOperator;
+    private char lastOperator;
 
     // Constructor
     public CalcEngine() {
@@ -87,6 +87,7 @@ public class CalcEngine
      * Method to determine which weekday the date is/was
      */
     public void getWeekday() {
+        setDate();
         JulianDate jd = gd.convertToJulianDate();
         displayString = jd.weekday();
     }
@@ -112,6 +113,7 @@ public class CalcEngine
      */
     public void applyOperator(char operator) {
         lastOperator = operator;
+        setDate();
     }
 
     /**
