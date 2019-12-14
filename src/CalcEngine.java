@@ -3,7 +3,7 @@
  *
  * @author David J. Barnes and Michael Kolling
  *         extended by Timo Schmidt, Sophia Stölzle
- * @version 2019.12.13
+ * @version 2019.12.14
  */
 public class CalcEngine
 {
