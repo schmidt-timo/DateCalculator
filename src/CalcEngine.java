@@ -50,9 +50,12 @@ public class CalcEngine
 
         switch (lastOperator) {
             case '+':
-                jd.add(Integer.parseInt(displayString));
-                gd = jd.getGregorian();
-                displayString = gd.toString();
+                if (displayString.matches("\\d+")) {
+                    jd.add(Integer.parseInt(displayString));
+                    gd = jd.getGregorian();
+                    displayString = gd.toString();
+                } else
+                    throw new IllegalArgumentException("Your input is not a number.");
                 break;
             case '-':
                 // If displayString is only a number (subtract days)
