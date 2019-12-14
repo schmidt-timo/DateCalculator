@@ -26,6 +26,7 @@ public class UserInterface
     private JLabel status;
 
     private JLabel currDate;
+    private JLabel weekday;
 
     /**
      * Create a user interface.
@@ -83,10 +84,10 @@ public class UserInterface
             buttonPanel.add(new JLabel());
             addButton(buttonPanel, "0", null);
             addButton(buttonPanel, ".", null);
-            addButton(buttonPanel, "weekday", "Get the weekday of this date");
-
             addButton(buttonPanel, "?", "Get version number");
-            buttonPanel.add(new JLabel("Current date:  ", SwingConstants.RIGHT));
+
+            addButton(buttonPanel, "weekday", "Get the weekday of this date");
+            buttonPanel.add(weekday = new JLabel("Current date:  ", SwingConstants.RIGHT));
             buttonPanel.add(currDate = new JLabel("0.0.0"));
             addButton(buttonPanel, "=", "Calculate result");
 
@@ -144,7 +145,7 @@ public class UserInterface
                 calc.applyOperator('-');
                 break;
             case "weekday":
-                calc.getWeekday();
+                weekday.setText(calc.getWeekday() + ", ");
                 break;
     	    default:
         	    calc.buttonPressed(command);

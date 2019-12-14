@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalculatorTest {
 
     CalcEngine calc;
-    UserInterface gui;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
@@ -22,5 +21,13 @@ class CalculatorTest {
         calc.buttonPressed("9");
         calc.equals();
         assertEquals("10.01.2000", calc.getDisplayString());
+
+        calc.clear();
+
+        calc.buttonPressed("14.12.2019");
+        calc.applyOperator('+');
+        calc.buttonPressed("17");
+        calc.equals();
+        assertEquals("31.12.2019", calc.getDisplayString());
     }
 }

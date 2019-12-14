@@ -86,10 +86,10 @@ public class CalcEngine
     /**
      * Method to determine which weekday the date is/was
      */
-    public void getWeekday() {
+    public String getWeekday() {
         setDate();
         JulianDate jd = gd.convertToJulianDate();
-        displayString = jd.weekday();
+        return jd.weekday();
     }
 
     /**
@@ -103,8 +103,6 @@ public class CalcEngine
         gd.setYear(Integer.parseInt(dmy[2]));
         gd.setMonth(Integer.parseInt(dmy[1]));
         gd.setDay(Integer.parseInt(dmy[0]));
-
-        displayString = "";
     }
 
     /**
@@ -114,6 +112,7 @@ public class CalcEngine
     public void applyOperator(char operator) {
         lastOperator = operator;
         setDate();
+        displayString = "";
     }
 
     /**
