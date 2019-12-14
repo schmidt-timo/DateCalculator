@@ -2,8 +2,7 @@
  * The main part of the calculator doing the calculations.
  *
  * @author David J. Barnes and Michael Kolling
- *         extended by Timo Schmidt, Pavel Tsvyatkov
- *         changed by Timo Schmidt, Sophia Stölzle
+ *         extended by Timo Schmidt, Sophia Stölzle
  * @version 2019.12.14
  */
 public class CalcEngine
