@@ -15,6 +15,27 @@ class CalculatorTest {
     }
 
     @Test
+    public void testWeekday() {
+
+        // Test Timo's birthday (Friday)
+        calc.buttonPressed("22.4.1994");
+        assertEquals("Friday", calc.getWeekday());
+
+        calc.clear();
+
+        // Test Sophia's birthday (Monday)
+        calc.buttonPressed("22.1.1996");
+        assertEquals("Monday", calc.getWeekday());
+
+        calc.clear();
+
+        // Test today's date (Sunday)
+        calc.buttonPressed("15.12.2019");
+        assertEquals("Sunday", calc.getWeekday());
+
+    }
+
+    @Test
     public void testAddDays() {
         calc.buttonPressed("1.1.2000");
         calc.applyOperator('+');
