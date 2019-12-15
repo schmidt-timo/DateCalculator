@@ -131,6 +131,7 @@ public class UserInterface
         switch(command) {
             case "clear":
         	    calc.clear();
+                weekday.setText("Current date: ");
                 break;
             case "?":
         	    showInfo();
