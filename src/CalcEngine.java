@@ -82,7 +82,10 @@ public class CalcEngine
      * @return a String of the Gregorian Date in format MM.DD.YYYY
      */
     public String getDate() {
-        return gd.toString();
+        if (gd.getYear() == 0 && gd.getMonth() == 0 && gd.getDay() == 0)
+            return "0.0.0";
+        else
+            return gd.toString();
     }
 
     /**
@@ -123,6 +126,7 @@ public class CalcEngine
      */
     public void clear(){
         displayString = "";
+        gd = new GregorianDate(0,0,0);
     }
 
     /**
