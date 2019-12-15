@@ -138,6 +138,7 @@ public class UserInterface
                 break;
             case "=":
                 calc.equals();
+                weekday.setText(calc.getWeekday() + ", ");
                 break;
             case "+":
                 calc.applyOperator('+');
