@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
  * @author David J. Barnes and Michael Kolling
  *         extended by Timo Schmidt, Pavel Tsvyatkov
  *         changed by Timo Schmidt, Sophia Stölzle
- * @version 2019.12.08
+ * @version 2019.12.15
  */
 public class UserInterface
     implements ActionListener

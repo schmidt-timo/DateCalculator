@@ -4,7 +4,7 @@
  * 
  * @author David J. Barnes and Michael Kolling
  *         extended by Timo Schmidt, Pavel Tsvyatkov
- * @version 2019.11.24
+ * @version 2019.12.15
  */
 public class Calculator
 {
